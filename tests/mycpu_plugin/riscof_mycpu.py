@@ -171,6 +171,7 @@ class mycpu(pluginTemplate):
 
             def timeout_handler():
                 logger.error(f"Simulation timed out after {timeout_sec} seconds! Killing process...")
+                proc.terminate()
                 proc.kill()
             
             timer = threading.Timer(timeout_sec, timeout_handler)
